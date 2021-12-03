@@ -2,8 +2,8 @@ package com.example.mybatis_example.controller;
 
 import java.util.List;
 
-import com.example.mybatis_example.mapper.UserMapper;
-import com.example.mybatis_example.model.User;
+import com.example.mybatis_example.service.UserService;
+import com.example.mybatis_example.utils.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,29 +20,28 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     @GetMapping("/all")
     public List<User> getAll() {
-        return userMapper.selectAllUser();
+        return userService.selectAllUser();
     }
 
     @PostMapping("/add")
     private String saveData(@RequestBody User user) {
-        userMapper.insertUser(user);
+        userService.insertUser(user);
         return "inserted successful";
     }
 
     @PutMapping("/update")
     private String update(@RequestParam int id, @RequestBody User user) {
-        user.setId(id);
-        userMapper.updateUser(user);
+        userService.updateUser(user, id);
         return "updated successful";
     }
 
     @DeleteMapping("/delete/{id}")
     private String delete(@PathVariable int id) {
-        userMapper.deleteUserById(id);
+        userService.deleteUserById(id);
         return "deleted successful";
     }
 }
