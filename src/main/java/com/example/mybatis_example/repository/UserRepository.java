@@ -32,6 +32,7 @@ public class UserRepository {
     public List<User> selectAllUser() {
         return userMapper.selectAllUser();
     }
+<<<<<<< HEAD
 
     public User selectUserByEmailAndPassword(String email, String password) {
         return userMapper.selectUserByEmailAndPassword(email, password);
@@ -40,4 +41,6 @@ public class UserRepository {
     public User selectUserByEmail(String email) {
         return userMapper.selectUserByEmail(email);
     }
+=======
+>>>>>>> 274d5c950b99fce79e5478d2ad45f388d85b214c
 }

@@ -19,6 +19,7 @@
 		resultType="com.example.mybatis_example.utils.User">
 		select * from user where id = #{id};
 	</select>
+<<<<<<< HEAD
 	<select id ="selectUserByEmailAndPassword" parameterType="map"
 			resultType="com.example.mybatis_example.utils.User">
 		select * from user where email= #{email} and password = #{password};
@@ -26,6 +27,9 @@
 	<select id ="selectUserByEmail" parameterType="String" resultType="com.example.mybatis_example.utils.User">
 			select * from user where email= #{email} ;
 	</select>
+=======
+
+>>>>>>> 274d5c950b99fce79e5478d2ad45f388d85b214c
 	<insert id="insertUser" parameterType="com.example.mybatis_example.utils.User">
 		insert into
 		user(name,email,password,status)

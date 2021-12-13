@@ -27,11 +27,14 @@ public class UserController {
     @GetMapping("/all")
     public List<User> getAll() {
         return userService.selectAllUser();
+<<<<<<< HEAD
     }
 
     @GetMapping("/detail/{id}")
     public User getUser(@PathVariable int id) {
         return userService.selectUserById(id);
+=======
+>>>>>>> 274d5c950b99fce79e5478d2ad45f388d85b214c
     }
 
     @PostMapping("/add")

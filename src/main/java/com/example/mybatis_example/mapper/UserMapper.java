@@ -3,8 +3,11 @@ package com.example.mybatis_example.mapper;
 import java.util.List;
 
 import com.example.mybatis_example.utils.User;
+<<<<<<< HEAD
 
 import org.apache.ibatis.annotations.Param;
+=======
+>>>>>>> 274d5c950b99fce79e5478d2ad45f388d85b214c
 
 public interface UserMapper {
     public void insertUser(User user);
