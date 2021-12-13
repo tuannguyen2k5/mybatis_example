@@ -4,9 +4,10 @@
 <mapper namespace="com.example.mybatis_example.mapper.UserMapper">
 
 
-	<resultMap id = "UserResult" type="com.example.mybatis_example.model.User" >
+	<resultMap id = "UserResult" type="com.example.mybatis_example.utils.User" >
 		<result property="id" column="id" />
 		<result property="name" column="name" />
+		<result property="email" column="email"/>
 		<result property="status" column="status" />
 	</resultMap>
 
@@ -15,20 +16,26 @@
 	</select>
 
 	<select id="selectUserById" parameterType="int"
-		resultType="com.example.mybatis_example.model.User">
+		resultType="com.example.mybatis_example.utils.User">
 		select * from user where id = #{id};
 	</select>
-
-	<insert id="insertUser" parameterType="com.example.mybatis_example.model.User">
+	<select id ="selectUserByEmailAndPassword" parameterType="map"
+			resultType="com.example.mybatis_example.utils.User">
+		select * from user where email= #{email} and password = #{password};
+	</select>
+	<select id ="selectUserByEmail" parameterType="String" resultType="com.example.mybatis_example.utils.User">
+			select * from user where email= #{email} ;
+	</select>
+	<insert id="insertUser" parameterType="com.example.mybatis_example.utils.User">
 		insert into
-		user(name,status)
-		values(#{name},#{status});
+		user(name,email,password,status)
+		values(#{name},#{email},#{password},#{status});
 	</insert>
 
-	<update id="updateUser" parameterType="com.example.mybatis_example.model.User">
+	<update id="updateUser" parameterType="com.example.mybatis_example.utils.User">
 		update user
 		set
-		name=#{name},status=#{status}
+		name=#{name},email=#{email},status=#{status}
 		where id=#{id};
 	</update>
 	<delete id="deleteUserById" parameterType="int">

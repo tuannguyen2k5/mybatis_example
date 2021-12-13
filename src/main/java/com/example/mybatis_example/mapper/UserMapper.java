@@ -2,7 +2,9 @@ package com.example.mybatis_example.mapper;
 
 import java.util.List;
 
-import com.example.mybatis_example.model.User;
+import com.example.mybatis_example.utils.User;
+
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     public void insertUser(User user);
@@ -15,4 +17,7 @@ public interface UserMapper {
 
     public List<User> selectAllUser();
 
+    public User selectUserByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+
+    public User selectUserByEmail(String email);
 }
